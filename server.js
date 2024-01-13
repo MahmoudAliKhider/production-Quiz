@@ -12,14 +12,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static(path.join(__dirname + './client/build')))
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.use('/api/users', userRouter);
 app.use('/api/exams', examRouter);
 app.use('/api/reports', reportRouter);
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 })
 
 
